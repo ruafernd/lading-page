@@ -321,11 +321,14 @@ const gallerySwiper = new Swiper('.gallery-swiper', {
         prevEl: '.gallery-swiper .swiper-button-prev',
     },
     breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
         640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
         },
         1024: {
-            slidesPerView: 3,
+            slidesPerView: 1,
         },
     }
 });
