@@ -1698,11 +1698,49 @@ html {
 }
 
 @media (max-width: 600px) {
+    .gallery-swiper {
+        max-width: 100vw !important;
+        padding: 0 0 40px 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
     .gallery-swiper .swiper-slide {
-        height: 180px;
+        height: 260px;
+        min-width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
     }
     .gallery-swiper .swiper-slide img {
         max-width: 100vw;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+    }
+    .contact-info {
+        border-radius: 16px;
+        box-shadow: var(--shadow-md);
+        padding: 24px 12px 24px 12px;
+        width: 100vw;
+        margin: 0 -20px 24px -20px;
+        background: var(--white);
+    }
+    .location-content {
+        padding: 0;
+    }
+    .location-actions {
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+        margin-top: 18px;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        border-radius: 24px;
+        font-size: 1.05rem;
+        justify-content: center;
+        padding: 14px 0;
+        margin: 0;
     }
 }
 
@@ -1718,4 +1756,64 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+}
+
+.convenio-icone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    background: transparent;
+    border-radius: 18px;
+    box-shadow: none;
+    padding: 32px 24px 18px 24px;
+    min-width: 260px;
+    max-width: 320px;
+    width: 100%;
+    height: 120px;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.convenio-icone span {
+    margin-top: 18px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.convenio-icone:hover {
+    box-shadow: 0 8px 32px #b86b8b22;
+    background: var(--light-gray);
+}
+
+/* Swiper setas e bullets na paleta */
+.convenios-slider .swiper-button-next,
+.convenios-slider .swiper-button-prev {
+    color: var(--primary-color);
+}
+.convenios-slider .swiper-button-next:hover,
+.convenios-slider .swiper-button-prev:hover {
+    color: var(--accent-color);
+}
+.convenios-slider .swiper-pagination-bullet {
+    background: var(--accent-color);
+    opacity: 0.4;
+}
+.convenios-slider .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    opacity: 1;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+    background: var(--accent-color);
+    opacity: 0.4;
+}
+.gallery-swiper .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    opacity: 1;
 }

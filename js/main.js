@@ -228,23 +228,31 @@ const responses = {
     'tratamento': 'Oferecemos diversos tratamentos como:\n• Limpeza e prevenção\n• Clareamento dental\n• Ortodontia\n• Implantes\n• Próteses\n\nGostaria de agendar uma avaliação?',
     'horário': 'Nosso horário de atendimento é:\n• Segunda a Sexta: 08:30h às 20:00h\n• Sábado: 08:30h às 12:00h',
     'convênio': 'Trabalhamos com os principais convênios:\n• Unimed\n• Amil\n• Bradesco Saúde\n• SulAmérica\n• Cassi',
-    'agendar': 'Para agendar uma consulta, você pode:\n• Clicar no botão do WhatsApp\n• Ligar para (83) 99605-5541\n\nQual opção você prefere?'
+    'agendar': 'Para agendar uma consulta, você pode:\n• Clicar no botão do WhatsApp\n• Ligar para (83) 99605-5541\n• Ou comparecer presencialmente na clínica dentro do horário de atendimento.\n\nQual opção você prefere?',
+    'localização': 'Estamos localizados em João Pessoa, PB.\nEndereço: Av. Exemplo, 123 - Bairro, João Pessoa - PB.\nVeja o mapa na seção "Como Chegar" do site.',
+    'telefone': 'Nosso telefone é (83) 99605-5541.\nVocê pode ligar ou enviar mensagem pelo WhatsApp!',
+    'faq': 'Perguntas frequentes:\n- Localização\n- Convênios\n- Telefone\n- Agendamento\n- Horários\n- Tratamentos\n\nDigite sua dúvida!'
 };
 
 // Processar input do usuário
 function processUserInput(input) {
     const lowercaseInput = input.toLowerCase();
-    let response = 'Desculpe, não entendi sua pergunta. Você pode perguntar sobre tratamentos, horários, convênios ou agendamento.';
+    let response = 'Desculpe, não entendi sua pergunta. Você pode perguntar sobre localização, convênios, telefone, agendamento, horários ou tratamentos.';
 
-    // Verificar palavras-chave
     if (lowercaseInput.includes('tratamento')) {
         response = responses.tratamento;
     } else if (lowercaseInput.includes('horário') || lowercaseInput.includes('horario')) {
         response = responses.horário;
     } else if (lowercaseInput.includes('convênio') || lowercaseInput.includes('convenio')) {
         response = responses.convênio;
-    } else if (lowercaseInput.includes('agendar') || lowercaseInput.includes('consulta')) {
+    } else if (lowercaseInput.includes('agendar') || lowercaseInput.includes('consulta') || lowercaseInput.includes('marcar')) {
         response = responses.agendar;
+    } else if (lowercaseInput.includes('localização') || lowercaseInput.includes('localizacao') || lowercaseInput.includes('onde fica') || lowercaseInput.includes('endereço') || lowercaseInput.includes('endereco')) {
+        response = responses.localização;
+    } else if (lowercaseInput.includes('telefone') || lowercaseInput.includes('número') || lowercaseInput.includes('numero') || lowercaseInput.includes('whatsapp')) {
+        response = responses.telefone;
+    } else if (lowercaseInput.includes('pergunta') || lowercaseInput.includes('faq') || lowercaseInput.includes('dúvida') || lowercaseInput.includes('duvida')) {
+        response = responses.faq;
     }
 
     return response;
