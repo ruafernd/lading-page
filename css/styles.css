@@ -1706,7 +1706,8 @@ html {
     }
     .gallery-swiper .swiper-slide {
         height: 260px;
-        min-width: 100vw;
+        width: 100% !important;
+        min-width: unset !important;
         border-radius: 0;
         box-shadow: none;
         margin: 0;
