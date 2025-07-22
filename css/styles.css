@@ -2112,23 +2112,23 @@ html {
     }
     
     .treatments-swiper .treatment-card {
-        max-width: 300px;
-        padding: 25px 20px;
-        height: 250px;
+        max-width: 320px;
+        padding: 30px 25px;
+        height: 280px;
     }
     
     .treatments-swiper .treatment-card h3 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         margin-bottom: 15px;
     }
     
     .treatments-swiper .treatment-card p {
-        font-size: 1rem;
+        font-size: 1.05rem;
         line-height: 1.5;
     }
     
     .treatments-swiper .treatment-card i {
-        font-size: 2.8rem;
+        font-size: 3rem;
         margin-bottom: 20px;
     }
     
@@ -2172,23 +2172,23 @@ html {
     }
     
     .treatments-swiper .treatment-card {
-        max-width: 280px;
-        padding: 20px 15px;
-        height: 220px;
+        max-width: 300px;
+        padding: 25px 20px;
+        height: 300px;
     }
     
     .treatments-swiper .treatment-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         margin-bottom: 12px;
     }
     
     .treatments-swiper .treatment-card p {
-        font-size: 0.95rem;
+        font-size: 1rem;
         line-height: 1.4;
     }
     
     .treatments-swiper .treatment-card i {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin-bottom: 15px;
     }
     
