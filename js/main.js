@@ -2,9 +2,204 @@
 window.addEventListener('load', () => {
     const loading = document.querySelector('.loading');
     loading.style.display = 'none';
+    
+    // Iniciar animações após o carregamento
+    setTimeout(() => {
+        initAnimations();
+    }, 100);
 });
 
-// Scroll Reveal
+// Sistema de Animação Avançado
+function initAnimations() {
+    // Animar elementos do header
+    animateHeaderElements();
+    
+    // Animar hero section
+    animateHeroSection();
+    
+    // Configurar observer para animações de scroll
+    setupScrollAnimations();
+}
+
+function animateHeaderElements() {
+    const logo = document.querySelector('.logo img');
+    const navItems = document.querySelectorAll('.nav ul li');
+    const whatsappFloat = document.querySelector('.whatsapp-float');
+    
+    if (logo) {
+        logo.style.opacity = '0';
+        logo.style.transform = 'scale(0.8)';
+        setTimeout(() => {
+            logo.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            logo.style.opacity = '1';
+            logo.style.transform = 'scale(1)';
+        }, 100);
+    }
+    
+    navItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+            item.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 200 + (index * 100));
+    });
+    
+    if (whatsappFloat) {
+        whatsappFloat.style.opacity = '0';
+        whatsappFloat.style.transform = 'scale(0.3)';
+        setTimeout(() => {
+            whatsappFloat.style.transition = 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            whatsappFloat.style.opacity = '1';
+            whatsappFloat.style.transform = 'scale(1)';
+        }, 1000);
+    }
+}
+
+function animateHeroSection() {
+    const heroTitle = document.querySelector('.hero-content h1');
+    const heroText = document.querySelector('.hero-content p');
+    const heroButton = document.querySelector('.hero-content .cta-button');
+    
+    if (heroTitle) {
+        heroTitle.style.opacity = '0';
+        heroTitle.style.transform = 'translateY(-100px)';
+        setTimeout(() => {
+            heroTitle.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            heroTitle.style.opacity = '1';
+            heroTitle.style.transform = 'translateY(0)';
+        }, 200);
+    }
+    
+    if (heroText) {
+        heroText.style.opacity = '0';
+        heroText.style.transform = 'translateY(60px)';
+        setTimeout(() => {
+            heroText.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            heroText.style.opacity = '1';
+            heroText.style.transform = 'translateY(0)';
+        }, 400);
+    }
+    
+    if (heroButton) {
+        heroButton.style.opacity = '0';
+        heroButton.style.transform = 'scale(0.3)';
+        setTimeout(() => {
+            heroButton.style.transition = 'all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            heroButton.style.opacity = '1';
+            heroButton.style.transform = 'scale(1)';
+        }, 600);
+    }
+}
+
+function setupScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                
+                // Animar seções específicas
+                if (element.classList.contains('section-header')) {
+                    animateSectionHeader(element);
+                } else if (element.classList.contains('premium-card')) {
+                    animatePremiumCard(element);
+                } else if (element.classList.contains('treatment-card')) {
+                    animateTreatmentCard(element);
+                } else if (element.classList.contains('testimonial-card')) {
+                    animateTestimonialCard(element);
+                } else if (element.classList.contains('convenio-icone')) {
+                    animateConvenioCard(element);
+                } else if (element.classList.contains('commitment-icon')) {
+                    animateCommitmentIcon(element);
+                } else if (element.classList.contains('hours-card')) {
+                    animateHoursCard(element);
+                } else {
+                    // Animação padrão para outros elementos
+                    element.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+                
+                observer.unobserve(element);
+            }
+        });
+    }, observerOptions);
+    
+    // Observar elementos com classe reveal
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+function animateSectionHeader(element) {
+    element.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    element.style.opacity = '1';
+    element.style.transform = 'translateY(0)';
+}
+
+function animatePremiumCard(element) {
+    const index = Array.from(element.parentNode.children).indexOf(element);
+    const delays = [0.2, 0.4, 0.6];
+    const animations = ['fadeInLeft', 'fadeInUp', 'fadeInRight'];
+    
+    setTimeout(() => {
+        element.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+    }, delays[index] * 1000);
+}
+
+function animateTreatmentCard(element) {
+    element.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    element.style.opacity = '1';
+    element.style.transform = 'scale(1)';
+}
+
+function animateTestimonialCard(element) {
+    const index = Array.from(element.parentNode.children).indexOf(element);
+    const delays = [0.2, 0.4, 0.6];
+    
+    setTimeout(() => {
+        element.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+    }, delays[index] * 1000);
+}
+
+function animateConvenioCard(element) {
+    const index = Array.from(element.parentNode.children).indexOf(element);
+    const delay = (index + 1) * 0.1;
+    
+    setTimeout(() => {
+        element.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        element.style.opacity = '1';
+        element.style.transform = 'scale(1)';
+    }, delay * 1000);
+}
+
+function animateCommitmentIcon(element) {
+    setTimeout(() => {
+        element.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        element.style.opacity = '1';
+        element.style.transform = 'rotate(0deg) scale(1)';
+    }, 300);
+}
+
+function animateHoursCard(element) {
+    setTimeout(() => {
+        element.style.transition = 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        element.style.opacity = '1';
+        element.style.transform = 'scale(1)';
+    }, 200);
+}
+
+// Scroll Reveal Melhorado
 const reveal = () => {
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(element => {

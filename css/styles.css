@@ -372,6 +372,18 @@ body {
 .convenios {
     padding: 120px 0;
     background: var(--light-gray);
+    text-align: center;
+}
+
+.convenios .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .convenios h2 {
@@ -388,6 +400,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
 }
 
 .convenio-icone {
@@ -406,7 +422,9 @@ body {
     width: 100%;
     height: 120px;
     transition: var(--transition);
-    margin: 0 auto;
+    margin: 0;
+    text-align: center;
+    place-self: center;
 }
 
 .convenio-icone span {
@@ -417,6 +435,8 @@ body {
     letter-spacing: 1px;
     white-space: nowrap;
     text-align: center;
+    width: 100%;
+    display: block;
 }
 
 .convenio-icone:hover {
@@ -2191,6 +2211,10 @@ html {
         gap: 15px;
         max-width: 600px;
         padding: 15px;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        place-items: center;
     }
     
     .convenio-icone {
@@ -2199,11 +2223,17 @@ html {
         min-width: 140px;
         max-width: 180px;
         height: 110px;
+        margin: 0;
+        text-align: center;
+        place-self: center;
     }
     
     .convenio-icone span {
         font-size: 1.1rem;
         margin-top: 8px;
+        width: 100%;
+        text-align: center;
+        display: block;
     }
 }
 
@@ -2212,6 +2242,10 @@ html {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
         padding: 10px;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        place-items: center;
     }
     
     .convenio-icone {
@@ -2220,11 +2254,17 @@ html {
         min-width: 120px;
         max-width: 160px;
         height: 100px;
+        margin: 0;
+        text-align: center;
+        place-self: center;
     }
     
     .convenio-icone span {
         font-size: 1rem;
         margin-top: 6px;
+        width: 100%;
+        text-align: center;
+        display: block;
     }
 }
 
@@ -2341,3 +2381,434 @@ html {
         margin-bottom: 10px;
     }
 }
+
+/* Animações Avançadas de Aparecimento */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Classes de Animação */
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-in-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-fade-in-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-fade-in-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-in-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.animate-slide-in-bottom {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-in-bottom.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-slide-in-top {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-in-top.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-rotate-in {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.3);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-rotate-in.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.animate-bounce-in {
+    opacity: 0;
+    transform: scale(0.3);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-bounce-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Delays para sequência de animações */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; }
+.delay-900 { transition-delay: 0.9s; }
+.delay-1000 { transition-delay: 1s; }
+
+/* Animações específicas para seções */
+.hero-content h1 {
+    animation: slideInFromTop 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.hero-content p {
+    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+}
+
+.hero-content .cta-button {
+    animation: bounceIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s both;
+}
+
+.section-header {
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.premium-card:nth-child(1) {
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.premium-card:nth-child(2) {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+}
+
+.premium-card:nth-child(3) {
+    animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
+
+.treatment-card {
+    animation: fadeInScale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.testimonial-card:nth-child(1) {
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+}
+
+.testimonial-card:nth-child(2) {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+}
+
+.testimonial-card:nth-child(3) {
+    animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+}
+
+.convenio-icone {
+    animation: fadeInScale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.commitment-icon {
+    animation: rotateIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+}
+
+.commitment-text {
+    animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+}
+
+.hours-card {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s both;
+}
+
+/* Animações para elementos flutuantes */
+.opening-hours::before,
+.opening-hours::after,
+.commitment-section::before,
+.commitment-section::after {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Melhorias nas animações existentes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animações para elementos específicos */
+.logo img {
+    animation: fadeInScale 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
+}
+
+.nav ul li {
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.nav ul li:nth-child(1) { animation-delay: 0.1s; }
+.nav ul li:nth-child(2) { animation-delay: 0.2s; }
+.nav ul li:nth-child(3) { animation-delay: 0.3s; }
+.nav ul li:nth-child(4) { animation-delay: 0.4s; }
+.nav ul li:nth-child(5) { animation-delay: 0.5s; }
+
+.whatsapp-float {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s both;
+}
+
+/* Animações para cards em sequência */
+.convenios-grid .convenio-icone:nth-child(1) { animation-delay: 0.1s; }
+.convenios-grid .convenio-icone:nth-child(2) { animation-delay: 0.2s; }
+.convenios-grid .convenio-icone:nth-child(3) { animation-delay: 0.3s; }
+.convenios-grid .convenio-icone:nth-child(4) { animation-delay: 0.4s; }
+.convenios-grid .convenio-icone:nth-child(5) { animation-delay: 0.5s; }
+.convenios-grid .convenio-icone:nth-child(6) { animation-delay: 0.6s; }
+.convenios-grid .convenio-icone:nth-child(7) { animation-delay: 0.7s; }
+.convenios-grid .convenio-icone:nth-child(8) { animation-delay: 0.8s; }
+
+/* Animações para tratamento cards em sequência */
+.treatments-swiper .swiper-slide:nth-child(1) .treatment-card { animation-delay: 0.1s; }
+.treatments-swiper .swiper-slide:nth-child(2) .treatment-card { animation-delay: 0.2s; }
+.treatments-swiper .swiper-slide:nth-child(3) .treatment-card { animation-delay: 0.3s; }
+.treatments-swiper .swiper-slide:nth-child(4) .treatment-card { animation-delay: 0.4s; }
+.treatments-swiper .swiper-slide:nth-child(5) .treatment-card { animation-delay: 0.5s; }
+.treatments-swiper .swiper-slide:nth-child(6) .treatment-card { animation-delay: 0.6s; }
+.treatments-swiper .swiper-slide:nth-child(7) .treatment-card { animation-delay: 0.7s; }
+.treatments-swiper .swiper-slide:nth-child(8) .treatment-card { animation-delay: 0.8s; }
+
+/* Estados iniciais para animações */
+.hero-content h1,
+.hero-content p,
+.hero-content .cta-button {
+    opacity: 0;
+}
+
+.section-header {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.premium-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.treatment-card {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.convenio-icone {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.commitment-icon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.3);
+}
+
+.commitment-text {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hours-card {
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+/* Animações para elementos do header */
+.logo img {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.nav ul li {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.whatsapp-float {
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+/* Melhorias nas transições existentes */
+.treatment-card,
+.convenio-icone,
+.premium-card,
+.testimonial-card {
+    will-change: transform, opacity;
+}
+
+/* Animações para elementos flutuantes */
+.opening-hours::before,
+.opening-hours::after,
+.commitment-section::before,
+.commitment-section::after {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Efeito de parallax suave */
+.hero {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Melhorias nas animações de hover */
+.treatment-card:hover,
+.convenio-icone:hover,
+.premium-card:hover,
+.testimonial-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Animações para elementos específicos com delays */
+.convenios-grid .convenio-icone:nth-child(1) { animation-delay: 0.1s; }
+.convenios-grid .convenio-icone:nth-child(2) { animation-delay: 0.2s; }
+.convenios-grid .convenio-icone:nth-child(3) { animation-delay: 0.3s; }
+.convenios-grid .convenio-icone:nth-child(4) { animation-delay: 0.4s; }
+.convenios-grid .convenio-icone:nth-child(5) { animation-delay: 0.5s; }
+.convenios-grid .convenio-icone:nth-child(6) { animation-delay: 0.6s; }
+.convenios-grid .convenio-icone:nth-child(7) { animation-delay: 0.7s; }
+.convenios-grid .convenio-icone:nth-child(8) { animation-delay: 0.8s; }
+
+/* Animações para tratamento cards em sequência */
+.treatments-swiper .swiper-slide:nth-child(1) .treatment-card { animation-delay: 0.1s; }
+.treatments-swiper .swiper-slide:nth-child(2) .treatment-card { animation-delay: 0.2s; }
+.treatments-swiper .swiper-slide:nth-child(3) .treatment-card { animation-delay: 0.3s; }
+.treatments-swiper .swiper-slide:nth-child(4) .treatment-card { animation-delay: 0.4s; }
+.treatments-swiper .swiper-slide:nth-child(5) .treatment-card { animation-delay: 0.5s; }
+.treatments-swiper .swiper-slide:nth-child(6) .treatment-card { animation-delay: 0.6s; }
+.treatments-swiper .swiper-slide:nth-child(7) .treatment-card { animation-delay: 0.7s; }
+.treatments-swiper .swiper-slide:nth-child(8) .treatment-card { animation-delay: 0.8s; }
