@@ -381,32 +381,53 @@ body {
     color: var(--primary-color);
 }
 
-.convenios-slider {
-    padding: 40px 0;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.convenios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.swiper-slide img {
-    max-width: 200px;
-    height: auto;
-    filter: grayscale(100%);
-    opacity: 0.7;
+.convenio-icone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    padding: 25px 15px;
+    min-width: 200px;
+    max-width: 250px;
+    width: 100%;
+    height: 120px;
     transition: var(--transition);
+    margin: 0 auto;
 }
 
-.swiper-slide:hover img {
-    filter: grayscale(0);
-    opacity: 1;
+.convenio-icone span {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-align: center;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.convenio-icone:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    background: var(--light-gray);
+}
+
+/* Swiper setas e bullets na paleta */
+.convenios-slider .swiper-button-next,
+.convenios-slider .swiper-button-prev {
     color: var(--primary-color);
     background: none;
     width: 40px;
@@ -416,21 +437,71 @@ body {
     transition: var(--transition);
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background: none;
+.convenios-slider .swiper-button-next:hover,
+.convenios-slider .swiper-button-prev:hover {
     color: var(--accent-color);
+    background: none;
     transform: scale(1.1);
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.convenios-slider .swiper-button-next::after,
+.convenios-slider .swiper-button-prev::after {
     font-size: 24px;
     font-weight: bold;
 }
 
-.swiper-pagination-bullet-active {
+.convenios-slider .swiper-pagination-bullet {
+    background: var(--accent-color);
+    opacity: 0.4;
+}
+
+.convenios-slider .swiper-pagination-bullet-active {
     background: var(--primary-color);
+    opacity: 1;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+    background: var(--accent-color);
+    opacity: 0.4;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    opacity: 1;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1200;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 16px rgba(139, 58, 98, 0.18);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    text-decoration: none !important;
+}
+.whatsapp-float:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 24px rgba(139, 58, 98, 0.25);
+}
+@media (max-width: 600px) {
+    .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.6rem;
+    }
 }
 
 /* Location Section */
@@ -2113,225 +2184,47 @@ html {
     background: var(--light-gray);
 }
 
-/* Swiper setas e bullets na paleta */
-.convenios-slider .swiper-button-next,
-.convenios-slider .swiper-button-prev {
-    color: var(--primary-color);
-    background: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
-    box-shadow: none;
-    transition: var(--transition);
-}
-
-.convenios-slider .swiper-button-next:hover,
-.convenios-slider .swiper-button-prev:hover {
-    color: var(--accent-color);
-    background: none;
-    transform: scale(1.1);
-}
-
-.convenios-slider .swiper-button-next::after,
-.convenios-slider .swiper-button-prev::after {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.convenios-slider .swiper-pagination-bullet {
-    background: var(--accent-color);
-    opacity: 0.4;
-}
-
-.convenios-slider .swiper-pagination-bullet-active {
-    background: var(--primary-color);
-    opacity: 1;
-}
-
-.gallery-swiper .swiper-pagination-bullet {
-    background: var(--accent-color);
-    opacity: 0.4;
-}
-
-.gallery-swiper .swiper-pagination-bullet-active {
-    background: var(--primary-color);
-    opacity: 1;
-}
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 1200;
-    background: var(--primary-color);
-    color: #fff;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 4px 16px rgba(139, 58, 98, 0.18);
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    text-decoration: none !important;
-}
-.whatsapp-float:hover {
-    background: var(--accent-color);
-    color: #fff;
-    transform: translateY(-3px) scale(1.07);
-    box-shadow: 0 8px 24px rgba(139, 58, 98, 0.25);
-}
-@media (max-width: 600px) {
-    .whatsapp-float {
-        bottom: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;
-        font-size: 1.6rem;
-    }
-}
-
-/* Responsividade para o carrossel e compromisso */
-@media (max-width: 768px) {
-    .treatments-swiper {
-        padding: 10px 0 50px 0;
-    }
-    
-    .treatments-swiper .treatment-card {
-        max-width: 320px;
-        padding: 30px 25px;
-        height: 320px;
-    }
-    
-    .treatments-swiper .treatment-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-    }
-    
-    .treatments-swiper .treatment-card p {
-        font-size: 1.05rem;
-        line-height: 1.5;
-    }
-    
-    .treatments-swiper .treatment-card i {
-        font-size: 3rem;
-        margin-bottom: 20px;
-    }
-    
-    .treatments-swiper .swiper-button-next,
-    .treatments-swiper .swiper-button-prev {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .treatments-swiper .swiper-button-next::after,
-    .treatments-swiper .swiper-button-prev::after {
-        font-size: 20px;
-    }
-    
-    .commitment-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .commitment-icon {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .commitment-icon i {
-        font-size: 2.5rem;
-    }
-    
-    .commitment-text h2 {
-        font-size: 2rem;
-    }
-    
-    .commitment-text p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .treatments-swiper {
-        padding: 5px 0 40px 0;
-    }
-    
-    .treatments-swiper .treatment-card {
-        max-width: 300px;
-        padding: 25px 20px;
-        height: 280px;
-    }
-    
-    .treatments-swiper .treatment-card h3 {
-        font-size: 1.4rem;
-        margin-bottom: 12px;
-    }
-    
-    .treatments-swiper .treatment-card p {
-        font-size: 1rem;
-        line-height: 1.4;
-    }
-    
-    .treatments-swiper .treatment-card i {
-        font-size: 2.8rem;
-        margin-bottom: 15px;
-    }
-    
-    .treatments-swiper .swiper-button-next,
-    .treatments-swiper .swiper-button-prev {
-        width: 30px;
-        height: 30px;
-    }
-    
-    .treatments-swiper .swiper-button-next::after,
-    .treatments-swiper .swiper-button-prev::after {
-        font-size: 18px;
-    }
-    
-    .treatments-swiper .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .commitment-text h2 {
-        font-size: 1.8rem;
-    }
-    
-    .commitment-text p {
-        font-size: 1rem;
-    }
-}
-
 /* Responsividade para convênios */
 @media (max-width: 768px) {
-    .convenio-icone {
-        font-size: 2.8rem;
-        padding: 25px 20px;
-        min-width: 260px;
-        max-width: 320px;
-        height: 130px;
+    .convenios-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 600px;
+        padding: 15px;
     }
     
-    .convenio-icone span {
-        font-size: 1.3rem;
-        margin-top: 12px;
-    }
-}
-
-@media (max-width: 480px) {
     .convenio-icone {
         font-size: 2.5rem;
         padding: 20px 15px;
-        min-width: 240px;
-        max-width: 300px;
-        height: 120px;
+        min-width: 140px;
+        max-width: 180px;
+        height: 110px;
     }
     
     .convenio-icone span {
-        font-size: 1.2rem;
-        margin-top: 10px;
+        font-size: 1.1rem;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .convenios-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 10px;
+    }
+    
+    .convenio-icone {
+        font-size: 2.2rem;
+        padding: 15px 10px;
+        min-width: 120px;
+        max-width: 160px;
+        height: 100px;
+    }
+    
+    .convenio-icone span {
+        font-size: 1rem;
+        margin-top: 6px;
     }
 }
 

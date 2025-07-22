@@ -79,36 +79,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Convênios Carousel
-const swiper = new Swiper('.convenios-slider', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.convenios-slider .swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.convenios-slider .swiper-button-next',
-        prevEl: '.convenios-slider .swiper-button-prev',
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-        },
-        768: {
-            slidesPerView: 3,
-        },
-        1024: {
-            slidesPerView: 4,
-        },
-    }
-});
-
 // Carrossel de Especialidades
 const treatmentsSwiper = new Swiper('.treatments-swiper', {
     slidesPerView: 1,
