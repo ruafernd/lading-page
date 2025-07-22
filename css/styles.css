@@ -865,6 +865,9 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .commitment-icon {
@@ -888,6 +891,7 @@ body {
 
 .commitment-text {
     max-width: 600px;
+    flex: 1;
 }
 
 .commitment-text h2 {
@@ -908,21 +912,74 @@ body {
     font-weight: 700;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
+/* Responsividade para seção de compromisso */
+@media (max-width: 768px) {
+    .commitment-section {
+        padding: 60px 0;
     }
-    50% {
-        transform: translateY(-20px);
+    
+    .commitment-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    .commitment-icon {
+        width: 100px;
+        height: 100px;
+        order: 1;
+    }
+    
+    .commitment-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .commitment-text {
+        order: 2;
+        max-width: 100%;
+    }
+    
+    .commitment-text h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .commitment-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: center;
     }
 }
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
+@media (max-width: 480px) {
+    .commitment-section {
+        padding: 50px 0;
     }
-    50% {
-        transform: scale(1.05);
+    
+    .commitment-content {
+        padding: 0 10px;
+        gap: 25px;
+    }
+    
+    .commitment-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .commitment-icon i {
+        font-size: 2rem;
+    }
+    
+    .commitment-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+    
+    .commitment-text p {
+        font-size: 1rem;
+        line-height: 1.5;
     }
 }
 
@@ -2812,3 +2869,21 @@ html {
 .treatments-swiper .swiper-slide:nth-child(6) .treatment-card { animation-delay: 0.6s; }
 .treatments-swiper .swiper-slide:nth-child(7) .treatment-card { animation-delay: 0.7s; }
 .treatments-swiper .swiper-slide:nth-child(8) .treatment-card { animation-delay: 0.8s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
