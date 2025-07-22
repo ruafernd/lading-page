@@ -1015,6 +1015,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .testimonial-card {
@@ -1024,6 +1026,7 @@ body {
     box-shadow: var(--shadow-md);
     transition: var(--transition);
     position: relative;
+    text-align: center;
 }
 
 .testimonial-card:hover {
@@ -1047,11 +1050,13 @@ body {
     color: #ffd700;
     margin-bottom: 20px;
     font-size: 1.2rem;
+    text-align: center;
 }
 
 .client-info {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     margin-top: 30px;
     padding-top: 20px;
@@ -1064,6 +1069,89 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--primary-color);
+}
+
+/* Responsividade para depoimentos */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 80px 0;
+    }
+    
+    .testimonials h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .testimonial-card {
+        padding: 30px 25px;
+        border-radius: 15px;
+        margin: 0 auto;
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .testimonial-card::before {
+        top: 15px;
+        left: 15px;
+        font-size: 4rem;
+    }
+    
+    .stars {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .client-info {
+        margin-top: 25px;
+        padding-top: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials {
+        padding: 60px 0;
+    }
+    
+    .testimonials h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .testimonials-grid {
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .testimonial-card {
+        padding: 25px 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+    
+    .testimonial-card::before {
+        top: 10px;
+        left: 10px;
+        font-size: 3rem;
+    }
+    
+    .stars {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .client-info {
+        margin-top: 20px;
+        padding-top: 12px;
+    }
 }
 
 /* Galeria Moderna */
