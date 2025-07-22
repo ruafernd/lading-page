@@ -557,3 +557,260 @@ document.querySelectorAll('.scroll-to-mapa').forEach(btn => {
         }
     });
 });
+
+// Galeria Moderna e Interativa
+class ModernGallery {
+    constructor() {
+        this.portfolioImages = [
+            {
+                src: 'assets/galeria/recepcao.jpg',
+                alt: 'Recepção da Clínica',
+                title: 'Recepção da Clínica',
+                description: 'Ambiente acolhedor e moderno'
+            },
+            {
+                src: 'assets/galeria/consultorio1.jpg',
+                alt: 'Consultório 1',
+                title: 'Consultório Principal',
+                description: 'Equipamentos de última geração'
+            },
+            {
+                src: 'assets/galeria/consultorio2.jpg',
+                alt: 'Consultório 2',
+                title: 'Consultório Especializado',
+                description: 'Tecnologia avançada para seu tratamento'
+            }
+        ];
+        
+        this.currentSlide = 0;
+        this.previousSlide = null;
+        this.autoPlayInterval = null;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        this.showSwipeHint = true;
+        this.isHovered = false;
+        this.hoveredButton = null;
+        this.parallaxY = 0;
+        this.mouseX = 0;
+        this.mouseY = 0;
+        
+        this.init();
+    }
+    
+    init() {
+        this.createDots();
+        this.bindEvents();
+        this.startAutoPlay();
+        this.initParallax();
+        this.updateProgress();
+        this.updateInfo();
+    }
+    
+    createDots() {
+        const dotsWrapper = document.getElementById('dots-wrapper');
+        if (!dotsWrapper) return;
+        
+        dotsWrapper.innerHTML = '';
+        
+        this.portfolioImages.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = 'dot';
+            dot.innerHTML = '<div class="dot-inner"></div><div class="dot-ripple"></div>';
+            
+            if (index === this.currentSlide) {
+                dot.classList.add('active');
+            }
+            
+            dot.addEventListener('click', () => this.goToSlide(index));
+            dotsWrapper.appendChild(dot);
+        });
+    }
+    
+    bindEvents() {
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const carouselMain = document.querySelector('.carousel-main');
+        const magneticField = document.querySelector('.magnetic-field');
+        
+        if (prevButton) {
+            prevButton.addEventListener('click', () => this.prevSlide());
+            prevButton.addEventListener('mouseenter', () => this.hoveredButton = 'left');
+            prevButton.addEventListener('mouseleave', () => this.hoveredButton = null);
+        }
+        
+        if (nextButton) {
+            nextButton.addEventListener('click', () => this.nextSlide());
+            nextButton.addEventListener('mouseenter', () => this.hoveredButton = 'right');
+            nextButton.addEventListener('mouseleave', () => this.hoveredButton = null);
+        }
+        
+        if (carouselMain) {
+            carouselMain.addEventListener('mouseenter', () => {
+                this.isHovered = true;
+                carouselMain.classList.add('hovered');
+                if (magneticField) magneticField.classList.add('active');
+            });
+            
+            carouselMain.addEventListener('mouseleave', () => {
+                this.isHovered = false;
+                carouselMain.classList.remove('hovered');
+                if (magneticField) magneticField.classList.remove('active');
+            });
+            
+            carouselMain.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+            carouselMain.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+        }
+    }
+    
+    prevSlide() {
+        this.previousSlide = this.currentSlide;
+        this.currentSlide = (this.currentSlide - 1 + this.portfolioImages.length) % this.portfolioImages.length;
+        this.updateSlide();
+        this.hideSwipeHint();
+        this.resetAutoPlay();
+    }
+    
+    nextSlide() {
+        this.previousSlide = this.currentSlide;
+        this.currentSlide = (this.currentSlide + 1) % this.portfolioImages.length;
+        this.updateSlide();
+        this.hideSwipeHint();
+        this.resetAutoPlay();
+    }
+    
+    goToSlide(index) {
+        this.previousSlide = this.currentSlide;
+        this.currentSlide = index;
+        this.updateSlide();
+        this.hideSwipeHint();
+        this.resetAutoPlay();
+    }
+    
+    updateSlide() {
+        const currentImage = document.getElementById('current-image');
+        const previousImage = document.getElementById('previous-image');
+        const reflectionImage = document.querySelector('.reflection-image');
+        
+        if (currentImage) {
+            currentImage.src = this.portfolioImages[this.currentSlide].src;
+            currentImage.alt = this.portfolioImages[this.currentSlide].alt;
+        }
+        
+        if (previousImage && this.previousSlide !== null) {
+            previousImage.src = this.portfolioImages[this.previousSlide].src;
+            previousImage.alt = this.portfolioImages[this.previousSlide].alt;
+        }
+        
+        if (reflectionImage) {
+            reflectionImage.src = this.portfolioImages[this.currentSlide].src;
+            reflectionImage.alt = this.portfolioImages[this.currentSlide].alt;
+        }
+        
+        this.updateDots();
+        this.updateProgress();
+        this.updateInfo();
+        
+        // Limpar slide anterior após animação
+        setTimeout(() => {
+            this.previousSlide = null;
+        }, 1500);
+    }
+    
+    updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+    
+    updateProgress() {
+        const progressFill = document.getElementById('progress-fill');
+        if (progressFill) {
+            const progress = ((this.currentSlide + 1) / this.portfolioImages.length) * 100;
+            progressFill.style.width = `${progress}%`;
+        }
+    }
+    
+    updateInfo() {
+        const infoTitle = document.querySelector('.info-title');
+        const infoDescription = document.querySelector('.info-description');
+        
+        if (infoTitle) {
+            infoTitle.textContent = this.portfolioImages[this.currentSlide].title;
+        }
+        
+        if (infoDescription) {
+            infoDescription.textContent = this.portfolioImages[this.currentSlide].description;
+        }
+    }
+    
+    hideSwipeHint() {
+        this.showSwipeHint = false;
+        const swipeHint = document.getElementById('swipe-hint');
+        if (swipeHint) {
+            swipeHint.style.display = 'none';
+        }
+    }
+    
+    startAutoPlay() {
+        this.autoPlayInterval = setInterval(() => {
+            this.nextSlide();
+        }, 8000);
+    }
+    
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+    
+    resetAutoPlay() {
+        this.stopAutoPlay();
+        setTimeout(() => {
+            this.startAutoPlay();
+        }, 5000);
+    }
+    
+    handleTouchStart(event) {
+        this.touchStartX = event.touches[0].clientX;
+    }
+    
+    handleTouchEnd(event) {
+        this.touchEndX = event.changedTouches[0].clientX;
+        this.handleSwipe();
+    }
+    
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = this.touchStartX - this.touchEndX;
+        
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0) {
+                this.nextSlide();
+            } else {
+                this.prevSlide();
+            }
+        }
+    }
+    
+    initParallax() {
+        const handleMouseMove = (e) => {
+            this.mouseX = e.clientX;
+            this.mouseY = e.clientY;
+            this.parallaxY = (e.clientY - window.innerHeight / 2) * 0.02;
+            
+            const parallaxOverlay = document.querySelector('.parallax-overlay');
+            if (parallaxOverlay) {
+                parallaxOverlay.style.transform = `translateY(${this.parallaxY}px)`;
+            }
+        };
+        
+        window.addEventListener('mousemove', handleMouseMove);
+    }
+}
+
+// Inicializar galeria quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+    new ModernGallery();
+});
