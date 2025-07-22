@@ -580,9 +580,9 @@ body {
 
 .treatments-swiper .treatment-card {
     width: 100%;
-    max-width: 320px;
+    max-width: 480px;
     margin: 0 auto;
-    height: 280px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -593,10 +593,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px 0;
 }
 
 .treatments-swiper .treatment-card i {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: 25px;
     transition: var(--transition);
@@ -604,19 +605,24 @@ body {
 }
 
 .treatments-swiper .treatment-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 20px;
     color: var(--text-color);
     transition: var(--transition);
     flex-shrink: 0;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .treatments-swiper .treatment-card p {
     transition: var(--transition);
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     line-height: 1.6;
+    font-size: 1.05rem;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 .treatments-swiper .swiper-pagination {
@@ -2114,7 +2120,7 @@ html {
     .treatments-swiper .treatment-card {
         max-width: 320px;
         padding: 30px 25px;
-        height: 280px;
+        height: 320px;
     }
     
     .treatments-swiper .treatment-card h3 {
@@ -2174,7 +2180,7 @@ html {
     .treatments-swiper .treatment-card {
         max-width: 300px;
         padding: 25px 20px;
-        height: 300px;
+        height: 280px;
     }
     
     .treatments-swiper .treatment-card h3 {

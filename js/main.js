@@ -132,20 +132,20 @@ const treatmentsSwiper = new Swiper('.treatments-swiper', {
             spaceBetween: 25,
         },
         640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 30,
         },
         768: {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 40,
         },
         1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 2,
+            spaceBetween: 50,
         },
         1200: {
-            slidesPerView: 4,
-            spaceBetween: 30,
+            slidesPerView: 3,
+            spaceBetween: 60,
         },
     }
 });
