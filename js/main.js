@@ -109,6 +109,47 @@ const swiper = new Swiper('.convenios-slider', {
     }
 });
 
+// Carrossel de Especialidades
+const treatmentsSwiper = new Swiper('.treatments-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.treatments-swiper .swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.treatments-swiper .swiper-button-next',
+        prevEl: '.treatments-swiper .swiper-button-prev',
+    },
+    breakpoints: {
+        480: {
+            slidesPerView: 1,
+            spaceBetween: 25,
+        },
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+        },
+    }
+});
+
 // WhatsApp Click Tracking
 document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
     link.addEventListener('click', () => {
