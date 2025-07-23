@@ -3057,7 +3057,7 @@ html {
 .carousel-image-container {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
 }
 
@@ -3093,6 +3093,7 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 65%;
     z-index: 2;
     animation: slideInCinematic 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -3104,6 +3105,7 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
     z-index: 1;
     animation: slideOutCinematic 1.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
 }
