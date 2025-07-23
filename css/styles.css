@@ -2392,7 +2392,7 @@ html {
         align-items: center;
         justify-content: center;
         place-items: center;
-    }
+}
     
     .convenio-icone {
         font-size: 2.2rem;
@@ -2455,7 +2455,7 @@ html {
     .location-actions {
         margin-top: 30px;
         gap: 15px;
-    }
+}
     
     .btn-primary, .btn-secondary {
         padding: 15px 30px;
@@ -2483,7 +2483,7 @@ html {
     .hours-card i {
         font-size: 3rem;
         margin-bottom: 20px;
-    }
+}
     
     .hours-card h3 {
         font-size: 1.8rem;

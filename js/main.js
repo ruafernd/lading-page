@@ -568,12 +568,7 @@ class ModernGallery {
                 title: 'Recepção da Clínica',
                 description: 'Ambiente acolhedor e moderno'
             },
-            {
-                src: 'assets/galeria/consultorio1.jpg',
-                alt: 'Consultório 1',
-                title: 'Consultório Principal',
-                description: 'Equipamentos de última geração'
-            },
+           
             {
                 src: 'assets/galeria/consultorio2.jpg',
                 alt: 'Consultório 2',
