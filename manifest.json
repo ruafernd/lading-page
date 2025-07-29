@@ -1,0 +1,58 @@
+{
+    "name": "Dental Magic - Clínica Odontológica em João Pessoa",
+    "short_name": "Dental Magic",
+    "description": "Clínica odontológica premium em João Pessoa especializada em ortodontia, clareamento dental e estética dental",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#b86b8b",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "pt-BR",
+    "categories": ["medical", "health"],
+    "icons": [
+        {
+            "src": "assets/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Agendar Consulta",
+            "short_name": "Agendar",
+            "description": "Agende sua consulta pelo WhatsApp",
+            "url": "https://wa.me/5583996055541?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.",
+            "icons": [
+                {
+                    "src": "assets/whatsapp-icon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Nossa Localização",
+            "short_name": "Localização",
+            "description": "Veja nossa localização no mapa",
+            "url": "/#localizacao",
+            "icons": [
+                {
+                    "src": "assets/map-icon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+} 

@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dentalmagicpb.netlify.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific files/directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all important pages
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Block access to sensitive files
+Disallow: /.env
+Disallow: /config/
+Disallow: /logs/ 
