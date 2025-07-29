@@ -1,7 +1,8 @@
 // Loading Animation
 window.addEventListener('load', () => {
-    const loading = document.querySelector('.loading');
-    loading.style.display = 'none';
+    // Remover loading animation (já foi removida do HTML)
+    // const loading = document.querySelector('.loading');
+    // loading.style.display = 'none';
     
     // Iniciar animações após o carregamento
     setTimeout(() => {
@@ -9,8 +10,71 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
+// Scroll Suave para Navbar
+function initSmoothScroll() {
+    const navLinks = document.querySelectorAll('.nav a, .mobile-menu a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Verificar se é um link interno (começa com #)
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Calcular offset para considerar o header fixo
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    // Scroll suave com duração personalizada
+                    smoothScrollTo(targetPosition, 800);
+                    
+                    // Fechar menu mobile se estiver aberto
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            }
+        });
+    });
+}
+
+// Função de scroll suave personalizada
+function smoothScrollTo(targetPosition, duration) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    // Função de easing para movimento suave
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
+
 // Sistema de Animação Avançado
 function initAnimations() {
+    // Inicializar scroll suave
+    initSmoothScroll();
+    
     // Animar elementos do header
     animateHeaderElements();
     
@@ -262,17 +326,17 @@ mobileMenuLinks.forEach(link => {
 });
 
 // Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         const target = document.querySelector(this.getAttribute('href'));
+//         if (target) {
+//             target.scrollIntoView({
+//                 behavior: 'smooth'
+//             });
+//         }
+//     });
+// });
 
 // Carrossel de Especialidades
 const treatmentsSwiper = new Swiper('.treatments-swiper', {
